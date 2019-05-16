@@ -15,7 +15,7 @@
 
     describe('Get Weather', function() {
     	it('pass', function(done){done()})
-/*
+
     	it('with valid city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -23,7 +23,7 @@
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?q=Hamilton'
+              url: appUrl + '/api/v1/getWeather?q=Hamilton,nz'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -34,7 +34,7 @@
             }
         });
     	});
-*/
+
       it('without city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -52,8 +52,7 @@
             }
         });
     	});
-/*
-
+    	
       it('with another valid city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -61,7 +60,7 @@
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?q=Auckland'
+              url: appUrl + '/api/v1/getWeather?q=Auckland,nz'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -73,6 +72,6 @@
             }
         });
     	});
-    	*/
+    	
     });
 })();
