@@ -15,7 +15,7 @@
 
     describe('Get Weather', function() {
     	it('pass', function(done){done()})
-
+/*
     	it('with valid city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -34,7 +34,7 @@
             }
         });
     	});
-/*
+*/
       it('without city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -43,7 +43,7 @@
         request({
       		method: 'GET',
               url: appUrl + '/api/v1/getWeather'
-          }, /* @callback */ /*function(err, resp, body) {
+          }, /* @callback */ function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
           	} else {
@@ -52,6 +52,7 @@
             }
         });
     	});
+/*
 
       it('with another valid city name', function(done) {
         if(!appUrl) {
