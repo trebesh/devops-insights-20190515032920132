@@ -10,7 +10,6 @@ var request = REQUEST.defaults( {
 //var OPENWEATHERURL = "http://api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=imperial";
 var OPENWEATHERURL = "http://api.openweathermap.org/data/2.5/weather?appid=6b7b471967dd0851d0010cdecf28f829&units=metric"; //Metric attept 1
 
-
 exports.getWeather = function(req, res) {
 	var zip = req.query.zip;
 	if( (zip === null) || (typeof(zip) === 'undefined') ) {
@@ -31,6 +30,7 @@ exports.getWeather = function(req, res) {
     		if(body.cod === 200) {
     			//var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' F';
     			var weath = "Conditions are " + body.weather[0].main + " and temperature is " + body.main.temp + ' C'; //Metric attempt 1.1
+
     			var response = {city: body.name, weather: weath};
     			return res.status(200).send(response);
     		} else {
