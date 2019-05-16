@@ -28,7 +28,21 @@
 
 
   describe('Get Weather', function() {
-  	it('with valid city', function(){
+  	it('with valid city name', function(){
+  		reqMock = {
+        query: {
+          city: 'London'
+        }
+      };
+  	})
+  	it('with invalid city name', function(){
+  		reqMock = {
+        query: {
+          city: 'London'
+        }
+      };
+  	})
+  	it('without city name', function(){
   		reqMock = {
         query: {
           city: 'London'
