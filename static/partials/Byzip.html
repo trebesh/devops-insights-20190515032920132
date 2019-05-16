@@ -35,5 +35,20 @@
       	<div id="city4city" class="underline" style="width:10em">&nbsp;{{city4City}}</div>
       	<div id="city4weather" class="underline">&nbsp;{{city4Weather}}</div>
       </div>
+      <style>
+      	#map { height: 50%; }
+      	html, body {height: 50%; margin: 0; padding: 0;}
+      </style>
+      <div id = "map"></div>
+      <script>
+      	var map;
+      	function initMap(){
+      		map = new Google.maps.Map(document.getElementById('map'),{
+      			center: {lat: -38.7916, lng: 175.9150},
+      			zoom: 8
+      		});
+      	}
+      </script>
+      <script> src="https:maps.googleapis.com/maps/api/js?key=     &callback=initMap"</script>
   	</div>
 </div>
