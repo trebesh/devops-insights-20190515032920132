@@ -23,6 +23,7 @@
         request({
       		method: 'GET',
               url: appUrl + '/api/v1/getWeather?q=London'
+              console.log("url: " + )
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -60,6 +61,7 @@
         request({
       		method: 'GET',
               url: appUrl + '/api/v1/getWeather?q=Auckland'
+                            console.log("url: " + )
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
