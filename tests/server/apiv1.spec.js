@@ -45,7 +45,7 @@
       reqMock = {
         query: {
           //zip: 79968
-          city: London
+          city: 'London'
         }
       };
 
