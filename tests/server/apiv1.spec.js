@@ -31,9 +31,33 @@
   	it('with valid city name', function(){
   		reqMock = {
         query: {
-          city: 'London'
+          city: 'Hamilton'
         }
       };
+      var body = {
+        cod: 200,
+        name: 'Hamilton',
+        weather: [
+          {
+            main: 'cold'
+          }
+        ],
+        main: {
+          temp: 10
+        }
+      };
+
+      var request = function( obj, callback ){
+        callback(null, null, body);
+      };
+
+      apiv1.__set__("request", request);
+
+      apiv1.getWeather(reqMock, resMock);
+
+      assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
+      assert(resMock.send.lastCall.args[0].city === 'Hamilton', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
+      assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 10 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
   	})
   	it('with invalid city name', function(){
   		reqMock = {
@@ -41,13 +65,26 @@
           city: 'London'
         }
       };
+      var request = function( obj, callback ){
+        callback(null, null, {});
+      };
+
+      apiv1.__set__("request", request);
+
+      apiv1.getWeather(reqMock, resMock);
+
+      assert(resMock.status.lastCall.calledWith(400), 'Unexpected response:' + resMock.status.lastCall.args);
+      assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
   	})
   	it('without city name', function(){
   		reqMock = {
         query: {
-          city: 'London'
+          city: ''
         }
       };
+      apiv1.getWeather(reqMock, resMock);
+
+      assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
   	})
   	
   	/*
