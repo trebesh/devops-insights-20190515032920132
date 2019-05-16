@@ -30,7 +30,7 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
             data = $scope.city4m;
         } 
 
-        if(data.length === 5) {
+        if(data.length >= 6) {
             $http({
                 method: "GET",
                 url: '/api/v1/getWeather?city=' + data
