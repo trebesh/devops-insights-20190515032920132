@@ -29,7 +29,7 @@
 
   describe('Get Weather', function() {
 
-    it('with without zip code', function() {
+    it('with without city', function() {
       reqMock = {
         query: {
 
@@ -41,10 +41,11 @@
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
 
-    it('with valid zip code and error from request call', function() {
+    it('with valid city and error from request call', function() {
       reqMock = {
         query: {
-          zip: 79968
+          //zip: 79968
+          city: London
         }
       };
 
@@ -60,10 +61,10 @@
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with incomplete zip code', function() {
+    it('with incomplete city', function() {
       reqMock = {
         query: {
-          zip: 79968
+          city: 'Londo'
         }
       };
 
@@ -79,10 +80,10 @@
       assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with valid zip code', function() {
+    it('with valid city', function() {
       reqMock = {
         query: {
-          zip: 79968
+          city: 'El Paso'
         }
       };
 
@@ -95,7 +96,7 @@
           }
         ],
         main: {
-          temp: 78
+          temp: 20
         }
       };
 
@@ -109,14 +110,14 @@
 
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
-      assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
+      assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 20 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
   });
 
   
   describe('Get Weather 2', function() {
 
-    it('with without zip code', function() {
+    it('with without city', function() {
       reqMock = {
         query: {
 
@@ -128,10 +129,10 @@
       assert(resMock.status.lastCall.calledWith(400), 'Unexpected status code:' + resMock.status.lastCall.args);
     });
 
-    it('with valid zip code and error from request call', function() {
+    it('with valid city and error from request call', function() {
       reqMock = {
         query: {
-          zip: 79968
+          city: 'London'
         }
       };
 
@@ -147,10 +148,10 @@
       assert(resMock.send.lastCall.calledWith('Failed to get the data'), 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with incomplete zip code', function() {
+    it('with incomplete city', function() {
       reqMock = {
         query: {
-          zip: 79968
+          city: 'Londo'
         }
       };
 
@@ -166,10 +167,10 @@
       assert(resMock.send.lastCall.args[0].msg === 'Failed', 'Unexpected response:' + resMock.send.lastCall.args);
     });
 
-    it('with valid zip code', function() {
+    it('with valid city', function() {
       reqMock = {
         query: {
-          zip: 79968
+          city: 'El Paso'
         }
       };
 
@@ -182,7 +183,7 @@
           }
         ],
         main: {
-          temp: 78
+          temp: 20
         }
       };
 
@@ -196,7 +197,7 @@
 
       assert(resMock.status.lastCall.calledWith(200), 'Unexpected response:' + resMock.status.lastCall.args);
       assert(resMock.send.lastCall.args[0].city === 'El Paso', 'Unexpected response:' + resMock.send.lastCall.args[0].city);
-      assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 78 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
+      assert(resMock.send.lastCall.args[0].weather === 'Conditions are cold and temperature is 20 C', 'Unexpected response:' + resMock.send.lastCall.args[0].weather);
     });
   });
   
