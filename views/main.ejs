@@ -10,7 +10,7 @@
         <script src="/bower_components/angular-route/angular-route.js"></script>
         <script src="/js/controllers.js"></script>
         <style>  
-	      	#map { height: 100%; width: 100%; }
+	      	#map { height: 300%; width: 100%; }
 	      	html, body {height: 100%; width: 100%; margin: 0; padding: 0;}
     	</style>
      
@@ -21,7 +21,7 @@
             <% include includes/mainbody %>
         </div>
         
-        <div id = "map"></div>
+        <div id = "map" style= "float: left, height: 100px, width: 100%"></div>
       	<script>
       		var map;
      	 	function initMap(){
@@ -30,7 +30,7 @@
       			zoom: 8
  				});
  				var mark = {lat: -38.7916, lng: 175.9150};
- 				var marker1 = new google.maps.Marker(mark, map: map});
+ 				var marker1 = new google.maps.Marker(mark ,map: map});
      	 	}
      	</script>
     	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2YqP4UtGTnyKY50RvXiL0_iB_AAmyaXc&callback=initMap"></script>
