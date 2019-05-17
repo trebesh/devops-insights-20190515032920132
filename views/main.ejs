@@ -21,7 +21,7 @@
             <% include includes/mainbody %>
         </div>
         
-        <div id = "map" style= "float: left, height: 80%, width: 100%"></div>
+        <div id = "map"></div>
       	<script>
       		var map;
      	 	function initMap(){
@@ -29,8 +29,7 @@
      			center: {lat: -38.7916, lng: 175.9150},
       			zoom: 8
  				});
- 				var mark = {lat: -38.7916, lng: 175.9150};
- 				var marker1 = new google.maps.Marker(mark ,map: map});
+ 				var marker = new google.maps.Marker({lat: -38.7916, lng: 175.9150, map: map});
      	 	}
      	</script>
     	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2YqP4UtGTnyKY50RvXiL0_iB_AAmyaXc&callback=initMap"></script>
