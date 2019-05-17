@@ -8,27 +8,8 @@
     });
     var appUrl = process.env.APP_URL;
     describe('Get Weather', function() {
-    	/*
-    	it('with valid city name', function(done) {
-        if(!appUrl) {
-            assert.fail("Environment variable APP_URL is not defined");
-            return done();
-        }
-        request({
-      		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?q=Hamilton,nz'
-          }, function(err, resp, body) {
-          	if(err) {
-          		assert.fail('Failed to get the response');
-          	} else {
-              assert.equal(resp.statusCode, 200);
-              var pbody = JSON.parse(body);
-              assert(pbody.city === 'Hamilton', "City name does not match");
-              done();
-            }
-        });
-    	});
-    	*/
+    	
+    	
       it('without city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -46,7 +27,27 @@
             }
         });
     	});
-    	/*
+    	
+       it('with valid city name', function(done) {
+        if(!appUrl) {
+            assert.fail("Environment variable APP_URL is not defined");
+            return done();
+        }
+        request({
+      		method: 'GET',
+              url: appUrl + '/api/v1/getWeather?city=Hamilton'
+          }, function(err, resp, body) {
+          	if(err) {
+          		assert.fail('Failed to get the response');
+          	} else {
+              assert.equal(resp.statusCode, 200);
+              var pbody = JSON.parse(body);
+              assert(pbody.city === 'Hamilton', "City name does not match");
+              done();
+            }
+        });
+    	});
+    	
       it('with another valid city name', function(done) {
         if(!appUrl) {
             assert.fail("Environment variable APP_URL is not defined");
@@ -54,7 +55,7 @@
         }
         request({
       		method: 'GET',
-              url: appUrl + '/api/v1/getWeather?q=Auckland,nz'
+              url: appUrl + '/api/v1/getWeather?city=Auckland,nz'
           }, function(err, resp, body) {
           	if(err) {
           		assert.fail('Failed to get the response');
@@ -66,6 +67,6 @@
             }
         });
     	});
-    	*/
+    	
     });
 })();
