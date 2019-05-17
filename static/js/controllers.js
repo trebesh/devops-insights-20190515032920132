@@ -38,8 +38,6 @@ ConsoleModule.controller('wcontroller', ['$scope', '$http', '$routeParams', '$ti
                 if(which === 1) {
                     $scope.city1City = response.data.city;
                     $scope.city1Weather = response.data.weather;
-                    $scope.marker1.lon = response.data.lon;
-                    $scope.marker1.lat = response.data.lat; 
                 } else if(which === 2) {
                     $scope.city2City = response.data.city;
                     $scope.city2Weather = response.data.weather;
